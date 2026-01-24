@@ -6,7 +6,64 @@
     <title>Borkata's Site</title>
     <style>
         body {
+            background-color: black;<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borkata's Site</title>
+    <style>
+        body {
             background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top-left buttons -->
+    <div class="button-container">
+        <a href="about/about.html">
+            <button>About</button>
+        </a>
+
+        <a href="downloads/downloads.html">
+            <button>Downloads</button>
+        </a>
+
+        <button>Button 3</button>
+    </div>
+</body>
+</html>
+
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
@@ -62,6 +119,7 @@
 
 </body>
 </html>
+
 
 
 
