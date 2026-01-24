@@ -7,11 +7,27 @@
 
 <style>
 body {
-    background-color: black;
+    background: linear-gradient(
+        120deg,
+        #0b0014,
+        #1a0033,
+        #2b0055,
+        #1a0033,
+        #0b0014
+    );
+    background-size: 400% 400%;
+    animation: bgMove 14s ease infinite;
+
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 30px;
+}
+
+@keyframes bgMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Top buttons */
@@ -117,13 +133,9 @@ body {
 
 <script>
 function showSection(num) {
-    // Hide all sections
     document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-
-    // Remove active state
     document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
 
-    // Show selected
     document.getElementById('section' + num).style.display = 'block';
     document.querySelectorAll('.tabs button')[num - 1].classList.add('active');
 }
