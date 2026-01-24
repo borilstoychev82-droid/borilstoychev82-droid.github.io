@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabbed Downloads</title>
+
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Top buttons */
+.tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.tabs button {
+    background: #222;
+    color: white;
+    border: 2px solid #555;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.tabs button:hover,
+.tabs button.active {
+    background: #555;
+}
+
+/* Sections */
+.section {
+    display: none;
+    background: #333;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.section h3 {
+    margin-top: 0;
+}
+
+.section button {
+    margin-top: 20px;
+    background: #444;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.section button:hover {
+    background: #666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Top buttons -->
+<div class="tabs">
+    <button onclick="showSection(1)" class="active">1</button>
+    <button onclick="showSection(2)">2</button>
+    <button onclick="showSection(3)">3</button>
+    <button onclick="showSection(4)">4</button>
+    <button onclick="showSection(5)">5</button>
+    <button onclick="showSection(6)">6</button>
+</div>
+
+<!-- Sections -->
+<div id="section1" class="section" style="display:block;">
+    <h3>Item 1</h3>
+    <p>Description for item 1.</p>
+    <button onclick="window.location.href='file1.zip'">Download</button>
+</div>
+
+<div id="section2" class="section">
+    <h3>Item 2</h3>
+    <p>Description for item 2.</p>
+    <button onclick="window.location.href='file2.zip'">Download</button>
+</div>
+
+<div id="section3" class="section">
+    <h3>Item 3</h3>
+    <p>Description for item 3.</p>
+    <button onclick="window.location.href='file3.zip'">Download</button>
+</div>
+
+<div id="section4" class="section">
+    <h3>Item 4</h3>
+    <p>Description for item 4.</p>
+    <button onclick="window.location.href='file4.zip'">Download</button>
+</div>
+
+<div id="section5" class="section">
+    <h3>Item 5</h3>
+    <p>Description for item 5.</p>
+    <button onclick="window.location.href='file5.zip'">Download</button>
+</div>
+
+<div id="section6" class="section">
+    <h3>Item 6</h3>
+    <p>Description for item 6.</p>
+    <button onclick="window.location.href='file6.zip'">Download</button>
+</div>
+
+<script>
+function showSection(num) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+
+    // Remove active state
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+
+    // Show selected
+    document.getElementById('section' + num).style.display = 'block';
+    document.querySelectorAll('.tabs button')[num - 1].classList.add('active');
+}
+</script>
+
+</body>
+</html>
