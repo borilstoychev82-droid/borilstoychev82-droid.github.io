@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tabbed Downloads</title>
+<title>Downloads Layout</title>
 
 <style>
 body {
@@ -17,7 +17,6 @@ body {
     );
     background-size: 400% 400%;
     animation: bgMove 14s ease infinite;
-
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -25,49 +24,48 @@ body {
 }
 
 @keyframes bgMove {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Top buttons */
-.tabs {
+/* button rows */
+.row {
     display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
-.tabs button {
+.row button {
     background: #222;
     color: white;
     border: 2px solid #555;
-    padding: 10px 20px;
+    padding: 8px 16px;
     cursor: pointer;
     border-radius: 6px;
-    font-size: 16px;
 }
 
-.tabs button:hover,
-.tabs button.active {
+.row button:hover {
     background: #555;
 }
 
-/* Sections */
-.section {
-    display: none;
+/* big panels */
+.panel {
     background: #333;
     padding: 25px;
     border-radius: 8px;
-    max-width: 500px;
+    margin-bottom: 30px;
+    max-width: 700px;
     box-shadow: 0 0 15px rgba(0,0,0,0.7);
 }
 
-.section h3 {
+.panel h3 {
     margin-top: 0;
 }
 
-.section button {
-    margin-top: 20px;
+.panel button {
+    margin-top: 15px;
     background: #444;
     border: none;
     color: white;
@@ -76,91 +74,93 @@ body {
     border-radius: 5px;
 }
 
-.section button:hover {
+.panel button:hover {
     background: #666;
 }
-
-    body {
-    background:
-        linear-gradient(
-            120deg,
-            rgba(11, 0, 20, 0.8),
-            rgba(43, 0, 85, 0.7),
-            rgba(11, 0, 20, 0.8)
-        ),
-        url("assets/bg.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    color: white;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- Top buttons -->
-<div class="tabs">
-    <button onclick="showSection(1)" class="active">Sigma 4.11</button>
-    <button onclick="showSection(2)">Exhibition</button>
-    <button onclick="showSection(3)">Compkiller</button>
-    <button onclick="showSection(4)">Compkiller CFG</button>
-    <button onclick="showSection(5)">Mods for minecraft</button>
-    <button onclick="showSection(6)">6</button>
+<!-- TOP ROW (1–8) -->
+<div class="row">
+    <button onclick="topPanel(1)">1</button>
+    <button onclick="topPanel(2)">2</button>
+    <button onclick="topPanel(3)">3</button>
+    <button onclick="topPanel(4)">4</button>
+    <button onclick="topPanel(5)">5</button>
+    <button onclick="topPanel(6)">6</button>
+    <button onclick="topPanel(7)">7</button>
+    <button onclick="topPanel(8)">8</button>
 </div>
 
-<!-- Sections -->
-<div id="section1" class="section" style="display:block;">
-    <h3>Sigma 4.11</h3>
-    <p>A cheat client that once dominated the Hypixel servers put in %appdata%\.minecraft\versions\</p>
-    <button onclick="window.location.href='https://drive.google.com/file/d/1eJUfvBgxbRF_qmBocXtYP3JkBsRK2ayc/view?usp=drive_link">Download</button>
+<!-- BIG PANEL 9 -->
+<div class="panel" id="topPanel">
+    <h3>Select an item (1–8)</h3>
+    <p>Description will appear here.</p>
 </div>
 
-<div id="section2" class="section">
-    <h3>Exhibition</h3>
-    <p>Exhibition client concerned the Hypixel and still concer the mushmc servers.</p>
-    <button onclick="window.location.href='https://drive.google.com/file/d/16i5vEznCO0slM6gcJmonsPmzjY_mJ7Av/view?usp=drive_link">Download</button>
+<!-- BOTTOM ROW (10–17) -->
+<div class="row">
+    <button onclick="bottomPanel(10)">10</button>
+    <button onclick="bottomPanel(11)">11</button>
+    <button onclick="bottomPanel(12)">12</button>
+    <button onclick="bottomPanel(13)">13</button>
+    <button onclick="bottomPanel(14)">14</button>
+    <button onclick="bottomPanel(15)">15</button>
+    <button onclick="bottomPanel(16)">16</button>
+    <button onclick="bottomPanel(17)">17</button>
 </div>
 
-<div id="section3" class="section">
-    <h3>Compkiller is one of the best Cs2 cheats out there its a crack.</h3>
-    <p>Description for item 3.</p>
-    <button onclick="window.location.href='https://drive.google.com/file/d/1WrIUHA3fkyAQz0FH6WG-DMPNYol-wJpG/view?usp=drive_link">Download</button>
-</div>
-
-<div id="section4" class="section">
-    <h3>Compkiller CFG</h3>
-    <p>My compkiller cfg still a good cfg but the visuals are bad.</p></p>
-    <button onclick="window.location.href='https://drive.google.com/file/d/1VSDnAboxdPTtZO6rGwVTmRZbi1xVTX_o/view?usp=drive_link">Download</button>
-</div>
-
-<div id="section5" class="section">
-    <h3>Minecraft Mods</h3>
-    <p>Fabric 1.21.11 </p>
-    <button onclick="window.location.href='https://drive.google.com/file/d/1hB9fF6u-sZvy2Eqd6cSG5NZcJ67ax1GR/view?usp=drive_link">Download</button>
-</div>
-
-<div id="section6" class="section">
-    <h3>Item 6</h3>
-    <p>Description for item 6.</p>
-    <button onclick="window.location.href='file6.zip'">Download</button>
+<!-- BIG PANEL 18 -->
+<div class="panel" id="bottomPanel">
+    <h3>Select an item (10–17)</h3>
+    <p>Description will appear here.</p>
 </div>
 
 <script>
-function showSection(num) {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+function topPanel(id) {
+    const panel = document.getElementById("topPanel");
 
-    document.getElementById('section' + num).style.display = 'block';
-    document.querySelectorAll('.tabs button')[num - 1].classList.add('active');
+    const data = {
+        1: { title: "Sigma 4.11", desc: "Old Minecraft cheat client.", link: "https://example.com" },
+        2: { title: "Exhibition", desc: "Hypixel focused client.", link: "https://example.com" },
+        3: { title: "Compkiller", desc: "CS2 crack.", link: "https://example.com" },
+        4: { title: "CFG Pack", desc: "Config pack.", link: "https://example.com" },
+        5: { title: "Minecraft Mods", desc: "Fabric mods.", link: "https://example.com" },
+        6: { title: "Item 6", desc: "Description 6.", link: "https://example.com" },
+        7: { title: "Item 7", desc: "Description 7.", link: "https://example.com" },
+        8: { title: "Item 8", desc: "Description 8.", link: "https://example.com" }
+    };
+
+    panel.innerHTML = `
+        <h3>${data[id].title}</h3>
+        <p>${data[id].desc}</p>
+        <button onclick="window.location.href='${data[id].link}'">Download</button>
+    `;
+}
+
+function bottomPanel(id) {
+    const panel = document.getElementById("bottomPanel");
+
+    const data = {
+        10: { title: "Item 10", desc: "Description 10.", link: "https://example.com" },
+        11: { title: "Item 11", desc: "Description 11.", link: "https://example.com" },
+        12: { title: "Item 12", desc: "Description 12.", link: "https://example.com" },
+        13: { title: "Item 13", desc: "Description 13.", link: "https://example.com" },
+        14: { title: "Item 14", desc: "Description 14.", link: "https://example.com" },
+        15: { title: "Item 15", desc: "Description 15.", link: "https://example.com" },
+        16: { title: "Item 16", desc: "Description 16.", link: "https://example.com" },
+        17: { title: "Item 17", desc: "Description 17.", link: "https://example.com" }
+    };
+
+    panel.innerHTML = `
+        <h3>${data[id].title}</h3>
+        <p>${data[id].desc}</p>
+        <button onclick="window.location.href='${data[id].link}'">Download</button>
+    `;
 }
 </script>
 
 </body>
 </html>
-
-
