@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изтегляния - TrapSMP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --neon: #00ffc8;
+            --neon-glow: rgba(0, 255, 200, 0.5);
+            --dark: #050508;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Rajdhani', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-orb {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+            animation: float 15s ease-in-out infinite;
+        }
+        .bg-orb-1 {
+            top: -150px;
+            left: -100px;
+            background: linear-gradient(135deg, #00ffc8 0%, #0066ff 100%);
+        }
+        .bg-orb-2 {
+            bottom: -150px;
+            right: -100px;
+            background: linear-gradient(315deg, #7c3aed 0%, #00ffc8 100%);
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 32px;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            color: var(--neon);
+        }
+
+        .redirect-btn {
+            padding: 20px 56px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #050508;
+            background: linear-gradient(135deg, var(--neon) 0%, #00cc9e 100%);
+            border: 2px solid var(--neon);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .redirect-btn:hover {
+            background: linear-gradient(135deg, #00ffd9 0%, var(--neon) 100%);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 50px var(--neon-glow);
+        }
+
+        .redirect-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Назад</a>
+        <button class="redirect-btn" onclick="redirectToSite()">
+            Към изтегляне
+        </button>
+    </div>
+
+<script>
+function redirectToSite() {
+    window.open("https://tlauncher.org/", "_blank");
+}
+</script>
+
+</body>
+</html>
