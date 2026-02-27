@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Full black background */
+        body {
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container for buttons */
+        .container {
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Button styling */
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            background-color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ddd;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="btn" onclick="goToDownloads()">Downloads</button>
+        <button class="btn" onclick="goToIP()">IP Page</button>
+    </div>
+
+    <script>
+        function goToDownloads() {
+            window.location.href = "/downloads/downloads.html";
+        }
+
+        function goToIP() {
+            window.location.href = "/ip/ip.html";
+        }
+    </script>
+
+</body>
+</html>
