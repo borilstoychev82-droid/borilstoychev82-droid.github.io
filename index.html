@@ -21,15 +21,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            color: #fff;
         }
 
-        /* Container for buttons */
         .container {
-            display: flex;
-            gap: 30px;
+            text-align: center;
         }
 
-        /* Button styling */
+        /* Download button */
         .btn {
             padding: 15px 40px;
             font-size: 18px;
@@ -40,6 +39,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-bottom: 40px;
         }
 
         .btn:hover {
@@ -50,13 +50,65 @@
         .btn:active {
             transform: scale(0.98);
         }
+
+        /* Minecraft IP section */
+        .ip-section {
+            background-color: #111;
+            padding: 25px 40px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .ip-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .ip-address {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #00ff99;
+        }
+
+        .copy-btn {
+            padding: 8px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #fff;
+            color: #000;
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: #ccc;
+        }
+
+        .copied-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #00ff99;
+            display: none;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        
+        <!-- Downloads Button -->
         <button class="btn" onclick="goToDownloads()">Downloads</button>
-        <button class="btn" onclick="goToIP()">IP Page</button>
+
+        <!-- Minecraft IP Section -->
+        <div class="ip-section">
+            <div class="ip-title">Minecraft Server IP</div>
+            <div class="ip-address" id="serverIP">site-whereas.gl.joinmc.link</div>
+            <button class="copy-btn" onclick="copyIP()">Copy IP</button>
+            <div class="copied-text" id="copiedText">Copied to clipboard ✔️</div>
+        </div>
+
     </div>
 
     <script>
@@ -64,8 +116,16 @@
             window.location.href = "/downloads/downloads.html";
         }
 
-        function goToIP() {
-            window.location.href = "/ip/ip.html";
+        function copyIP() {
+            const ip = document.getElementById("serverIP").innerText;
+            navigator.clipboard.writeText(ip).then(() => {
+                const copiedText = document.getElementById("copiedText");
+                copiedText.style.display = "block";
+                
+                setTimeout(() => {
+                    copiedText.style.display = "none";
+                }, 2000);
+            });
         }
     </script>
 
